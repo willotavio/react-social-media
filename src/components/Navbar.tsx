@@ -17,10 +17,10 @@ export const Navbar = () => {
             <div>
                 <p><Link to={'/login'}>Login</Link></p>
             </div>
-            {user ? 
+            {user &&
             <>
                 <div>
-                    <p>{user.displayName}</p>
+                    <p><Link to={'profile'}>{user.displayName}</Link></p>
                 </div>
                 <div>
                     <img src={user.photoURL || ""}></img>
@@ -29,10 +29,6 @@ export const Navbar = () => {
                     <p><Link to={'/'} onClick={signUserOut}>Log Out</Link></p>
                 </div>
             </>
-            :
-            <div>
-                <p>Loading...</p>
-            </div>
             }
             
         </div>
