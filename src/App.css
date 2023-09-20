@@ -52,17 +52,21 @@ hr{
   margin: 2rem 0;
 }
 .profile img{
-  padding-top: 1rem;
+  margin-top: 1rem;
   width: 200px;
   border-radius: 50%;
   border: 0.2rem solid #8119d7;
 }
+.home *{
+  margin: auto;
+}
+.home span{
+  color: #8119d7;
+}
 
-.dot{
-  height: 15rem;
-  width: 60rem;
-  background-color: #8119d7;
-  border-bottom-right-radius: 100%;
-  position: absolute;
-  z-index: -1;
+.login *{
+  font-size: 26px;
+}
+.login button{
+  height: 3rem;
 }

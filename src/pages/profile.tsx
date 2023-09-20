@@ -6,7 +6,6 @@ export const Profile = () => {
     return(
         <div>
             <div className="profile">
-                <div className="dot"></div>
                 <img src={user?.photoURL || ""}></img>
             </div>
             <hr/>
