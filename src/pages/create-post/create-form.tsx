@@ -45,19 +45,21 @@ export const CreateForm = () => {
 
     return(
         <table className="newPostTable">
-            <tr>
-                <td>
-                    <h1>Create a new post</h1>
-                    <form onSubmit={handleSubmit(onCreatePost)} className="newPostForm">
-                        <input type="text" {...register("title")} placeholder="Title"/>
-                        <span>{errors.title?.message}</span>
-                        <textarea {...register("description")} placeholder="Description" />
-                        <span>{errors.description?.message}</span>
-                        <input type="submit" value="Post" />
-                    </form>
-                </td>
-                <td><img src={createPostIcon1} height={400}/></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td>
+                        <h1>Create a new post</h1>
+                        <form onSubmit={handleSubmit(onCreatePost)} className="newPostForm">
+                            <input type="text" {...register("title")} placeholder="Title"/>
+                            <span>{errors.title?.message}</span>
+                            <textarea {...register("description")} placeholder="Description" />
+                            <span>{errors.description?.message}</span>
+                            <input type="submit" value="Post" />
+                        </form>
+                    </td>
+                    <td><img src={createPostIcon1} height={400}/></td>
+                </tr>
+            </tbody>
         </table>
     );
 }
