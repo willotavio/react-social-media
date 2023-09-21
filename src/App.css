@@ -35,7 +35,7 @@ body{
   color: white;
 }
 
-button{
+button, input[type="submit"]{
   border: none;
   background-color: #8119d7;
   color: whitesmoke;
@@ -43,11 +43,11 @@ button{
   border-radius: 0.2rem;
 }
 
-button:hover{
+button:hover,input[type="submit"]:hover{
   opacity: 80%;
 }
 
-hr{
+.profile hr{
   background-color: #8119d7;
   margin: 2rem 0;
 }
@@ -58,6 +58,7 @@ hr{
   border: 0.2rem solid #8119d7;
 }
 .home *{
+  padding: 1rem 0;
   margin: auto;
 }
 .home span{
@@ -65,8 +66,34 @@ hr{
 }
 
 .login *{
-  font-size: 26px;
+  font-size: 20px;
 }
 .login button{
   height: 3rem;
+}
+
+.newPostTable{
+  margin: 5rem auto;
+  border: 0.1rem solid grey;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  color: #8119d7;
+}
+.newPostForm{
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+}
+.newPostForm input[type="text"], textarea{
+  border-width: 0 0 0.1rem 0;
+  border-radius: 0.2rem;
+  font-size: 18px;
+  resize: vertical;
+}
+.newPostForm input[type="text"], textarea:focus{
+  outline: none;
+}
+.newPostForm *{
+  margin: 0.5rem;
 }

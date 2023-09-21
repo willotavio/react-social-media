@@ -14,13 +14,15 @@ export const Navbar = () => {
             <div>
                 <p><Link to={'/'}>Home</Link></p>
             </div>
-            <div>
+            {!user ? <div>
                 <p><Link to={'/login'}>Login</Link></p>
             </div>
-            {user &&
-            <>
+            :<>
                 <div>
-                    <p><Link to={'profile'}>{user.displayName}</Link></p>
+                    <p><Link to={'/createpost'}>Create Post</Link></p>
+                </div>
+                <div>
+                    <p><Link to={'/profile'}>{user.displayName}</Link></p>
                 </div>
                 <div>
                     <img src={user.photoURL || ""}></img>
