@@ -22,17 +22,21 @@ body{
   color: white;
   justify-content: end;
 }
-
 .navbar img{
   width: 50px;
   border-radius: 50%;
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
 }
-
 .navbar *{
   margin-right: 0.5rem;
-  padding: 0.3rem 0.1rem;
   text-decoration: none;
   color: white;
+  display: flex;
+  flex-direction: row;
+}
+.navbar div{
+  margin: 0;
 }
 
 button, input[type="submit"]{
@@ -58,7 +62,6 @@ button:hover,input[type="submit"]:hover{
   border: 0.2rem solid #8119d7;
 }
 .home *{
-  padding: 1rem 0;
   margin: auto;
 }
 .home span{
@@ -106,5 +109,9 @@ button:hover,input[type="submit"]:hover{
   border-radius: 0.2rem;
 }
 .post *{
-  padding: 0.5rem;
+  padding: 0.5rem 0;
+  text-align: justify;
+}
+.post hr{
+  padding: 0;
 }

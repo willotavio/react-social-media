@@ -1,31 +1,12 @@
-import { auth, db } from "../config/firebase";
+import { auth } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { getDocs, collection } from "firebase/firestore";
-import { useState, useEffect } from 'react';
+import { useGetPosts } from "./useGetPosts";
 import { Post } from "./main/post";
-
-export interface Post{
-    id: string;
-    userId: string;
-    username: string;
-    title: string;
-    description: string;
-}
 
 export const Profile = () => {
     const [user] = useAuthState(auth);
-    
-    const [postsList, setPostsList] = useState<Post[] | null>(null);
-    const postsRef = collection(db, 'posts');
 
-    const getPosts = async () => {
-        const data = await getDocs(postsRef);
-        setPostsList(data.docs.map((doc) => ({...doc.data(), id: doc.id})) as Post[]);
-    }
-
-    useEffect(() => {
-        getPosts();
-    }, [])
+    const { postsList } = useGetPosts();
 
     return(
         <div>
@@ -38,8 +19,8 @@ export const Profile = () => {
             <div>
                 {
                     postsList?.filter((post) => post.userId === user?.uid)
-                    .map((post) => (
-                        <Post post={post}/>
+                    .map((post, index) => (
+                        <Post post={post} key={index}/>
                     ))
                 }
             </div>

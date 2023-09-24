@@ -23,8 +23,6 @@ export const Navbar = () => {
                 </div>
                 <div>
                     <p><Link to={'/profile'}>{user.displayName}</Link></p>
-                </div>
-                <div>
                     <img src={user.photoURL || ""}></img>
                 </div>
                 <div>
