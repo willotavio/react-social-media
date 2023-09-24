@@ -97,3 +97,14 @@ button:hover,input[type="submit"]:hover{
 .newPostForm *{
   margin: 0.5rem;
 }
+
+.post{
+  width: 50rem;
+  background-color: white;
+  margin: 1rem auto;
+  padding: 0 1rem;
+  border-radius: 0.2rem;
+}
+.post *{
+  padding: 0.5rem;
+}

@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Main } from './pages/main';
+import { Main } from './pages/main/main';
 import { Login } from './pages/login';
 import { Profile } from './pages/profile';
 import { CreatePost } from './pages/create-post/create-post';

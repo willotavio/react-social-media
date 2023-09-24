@@ -2,34 +2,31 @@ import { auth, db } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { getDocs, collection } from "firebase/firestore";
 import { useState, useEffect } from 'react';
+import { Post } from "./main/post";
 
-interface Post{
-    username: string, 
-    description: string,
-    title: string,
-    userId: string
+export interface Post{
+    id: string;
+    userId: string;
+    username: string;
+    title: string;
+    description: string;
 }
 
 export const Profile = () => {
+    const [user] = useAuthState(auth);
+    
+    const [postsList, setPostsList] = useState<Post[] | null>(null);
+    const postsRef = collection(db, 'posts');
 
-    const [posts, setPosts] = useState<Post[]>([]);
-
-    const getPost = async () => {    
-        const query = collection(db, 'posts');
-        const postsList = await getDocs(query);
-        const postsArray: Post[] = []
-        postsList.forEach((post) => {
-            postsArray.push(post.data() as Post);
-        })
-        setPosts(postsArray);
-        console.log(posts);
+    const getPosts = async () => {
+        const data = await getDocs(postsRef);
+        setPostsList(data.docs.map((doc) => ({...doc.data(), id: doc.id})) as Post[]);
     }
 
     useEffect(() => {
-        getPost();
-    }, []);
+        getPosts();
+    }, [])
 
-    const [user] = useAuthState(auth);
     return(
         <div>
             <div className="profile">
@@ -39,14 +36,12 @@ export const Profile = () => {
                 <hr/>
             </div>
             <div>
-                {posts.filter((post) => post.userId === user?.uid)
-                .map((post, index) => (
-                    <div key={index}>
-                        <h2>{post.title}</h2>
-                        <p>{post.description}</p>
-                        <hr/>
-                    </div>
-                ))}
+                {
+                    postsList?.filter((post) => post.userId === user?.uid)
+                    .map((post) => (
+                        <Post post={post}/>
+                    ))
+                }
             </div>
         </div>
         
