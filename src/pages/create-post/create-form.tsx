@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { addDoc, collection } from "firebase/firestore";
 import { auth, db } from "../../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import createPostIcon1 from '../../imgs/createPostIcon1.svg';
+import createPostIcon1 from '../../img/createPostIcon1.svg';
 
 interface CreateFormData{
     title: string,

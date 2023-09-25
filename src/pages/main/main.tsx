@@ -2,9 +2,9 @@ import { Post } from "./post";
 import { auth } from "../../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
-import mainIcon1 from '../../../src/imgs/mainIcon1.svg';
-import mainIcon2 from '../../../src/imgs/mainIcon2.svg';
-import mainIcon3 from '../../../src/imgs/mainIcon3.svg';    
+import mainIcon1 from '../../../src/img/mainIcon1.svg';
+import mainIcon2 from '../../../src/img/mainIcon2.svg';
+import mainIcon3 from '../../../src/img/mainIcon3.svg';    
 
 import { useGetPosts } from "../useGetPosts";
 
